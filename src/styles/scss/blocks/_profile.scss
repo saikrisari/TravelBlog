@@ -1,0 +1,116 @@
+@use "../global" as global;
+
+.profile {
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1110px;
+    align-items: start;
+
+    @include global.tablet {
+        padding: 0 10px;
+        justify-content: center;
+    }
+
+    &__picture {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    &__image {
+        border-radius: 10px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+
+    &__header {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 100%;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 54px;
+        color: global.$color-font;
+        margin: 0;
+
+        @include global.mobile {
+            font-size: 24px;
+            line-height: 100%;
+        }
+    }
+
+    &__edit {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer
+    }
+
+    &__icon-edit {
+        color: global.$color-edit;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    &__label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: global.$color-label;
+        margin: 0;
+    }
+
+    &__about {
+        color: global.$color-black;
+        font-weight: 400;
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+
+    &__city {
+        color: global.$color-black;
+        font-weight: 400;
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+
+    &__data {
+        color: global.$color-black;
+        font-weight: 400;
+        margin: 0;
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    &__input {
+        display: none;
+    }
+}

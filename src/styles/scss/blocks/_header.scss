@@ -1,0 +1,127 @@
+@use "../global" as global;
+
+.header {
+  background-image: url(src/assets/header-img.png);
+  background-position-x: center;
+  margin-bottom: 30px;
+  padding: 0 374px;
+
+  @include global.desktop {
+    padding: 0 100px;
+  }
+
+  @include global.small-desktop {
+    padding: 0 30px;
+  }
+
+  @include global.tablet {
+    padding: 0 20px;
+  }
+
+  @include global.small-tablet {
+    padding: 0 15px;
+  }
+
+  &--main {
+    margin-bottom: 60px;
+
+    .header__text {
+      padding: 108px 0 142px 0;
+
+      @include global.tablet {
+        font-size: 30px;
+        padding: 30px 0;
+        line-height: 100%;
+      }
+
+      @include global.small-tablet {
+        font-size: 24px;
+        padding: 20px 0;
+      }
+    }
+  }
+
+  &__wrapper {
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    display: flex;
+    padding: 29px 0;
+    border-bottom: solid 1px global.$border-white;
+  }
+
+  &__text {
+    font-size: 48px;
+    font-weight: 700;
+    color: global.$color-white;
+    line-height: 72px;
+    margin: 0;
+    padding: 40px 0;
+    text-align: center;
+
+    @include global.tablet {
+      font-size: 30px;
+      padding: 30px 0;
+      line-height: 100%;
+    }
+  }
+
+  &__photo {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 30px;
+    width: 30px;
+  }
+
+  &__link {
+    color: global.$color-white;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    padding: 0;
+
+    &--active {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__user {
+    position: relative;
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    display: none;
+    background-color: global.$color-white;
+    border-radius: 2px;
+    width: 70px;
+    padding: 8px;
+    list-style-type: none;
+    margin: 0;
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    color: global.$color-menu;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: global.$ff-main;
+    cursor: pointer;
+  }
+}

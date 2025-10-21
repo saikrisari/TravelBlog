@@ -1,0 +1,16 @@
+@use "./global/index" as global;
+
+@use "global/fonts";
+@use "global/normalize";
+@use "global/mixins";
+@use "global/variables";
+@use "global/reboot";
+
+@use "blocks/header";
+@use "blocks/modal";
+@use "blocks/form";
+@use "blocks/custom-input";
+@use "blocks/profile";
+@use "blocks/btn";
+@use "blocks/posts";
+@use "blocks/post";

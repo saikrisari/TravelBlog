@@ -1,0 +1,74 @@
+@use "../global" as global;
+
+.btn {
+  background-color: transparent;
+  border: solid 2px global.$color-yellow;
+  border-radius: 10px;
+  padding: 19px 30px;
+  color: global.$color-yellow;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 13px;
+  cursor: pointer;
+
+  @include global.mobile {
+    text-align: center;
+  }
+
+  &:hover {
+    color: global.$color-hover;
+    border-color: global.$color-hover;
+  }
+
+  &--yellow {
+    background-color: global.$color-yellow;
+    color: global.$color-white;
+
+    &:hover {
+      background-color: global.$color-hover;
+      color: global.$color-white;
+    }
+  }
+
+  &--arrow {
+    padding: 13.5px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  &--link {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration-skip-ink: none;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: global.$color-hover;
+      text-decoration: none;
+    }
+  }
+
+  &--more {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-weight: 500;
+    line-height: 26px;
+    text-decoration-skip-ink: none;
+    font-size: 14px;
+
+    &:hover {
+      color: global.$color-hover;
+      text-decoration: none;
+    }
+  }
+}

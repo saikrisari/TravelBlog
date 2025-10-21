@@ -1,0 +1,86 @@
+@use "../global" as global;
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1170px;
+    margin-bottom: 60px;
+    padding: 0;
+
+    @include global.tablet {
+      padding: 10px;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px 0px global.$shadow-post;
+    overflow: hidden;
+    width: 370px;
+
+    @include global.tablet {
+      width: 300px;
+    }
+  }
+
+  &__description {
+    height: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__image {
+    height: 288px;
+    min-height: 288px;
+  }
+
+  &__upper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__title {
+    color: global.$color-font;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    margin: 0;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: global.$color-text;
+    margin: 0;
+  }
+
+  &__location {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    color: global.$color-font;
+    margin: 0;
+  }
+}

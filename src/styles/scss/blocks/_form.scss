@@ -1,0 +1,98 @@
+@use "../global" as global;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 28px 238px;
+  margin: 0 auto;
+  border: 1px solid global.$border-grey;
+  border-radius: 10px;
+  background-color: global.$color-white;
+  width: fit-content;
+  min-height: calc(100vh - (30px + 60px + 277px));
+
+  @include global.mobile {
+    padding: 20px;
+    min-height: auto;
+    width: 100%;
+    margin: 0 10px;
+  }
+
+  @include global.tablet {
+    padding: 20px;
+    width: auto;
+    margin: 0 10px;
+  }
+
+  &--error {
+    .form__header {
+      margin-bottom: 10px;
+    }
+
+    .form__error {
+      display: block;
+    }
+
+    .custom-input__field {
+      border-color: global.$color-red;
+    }
+  }
+
+  &__header {
+    color: global.$color-font;
+    font-size: 36px;
+    line-height: 54px;
+    text-align: center;
+    margin: 0 0 20px;
+
+    @include global.mobile {
+      font-size: 24px;
+      line-height: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include global.mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__error {
+    display: none;
+    color: global.$color-red;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0 0 10px;
+  }
+
+  &__bottom-header {
+    margin: 0 0 8px;
+    padding: 0;
+    color: global.$color-label;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__block {
+    display: flex;
+    gap: 20px;
+
+    @include global.mobile {
+      flex-direction: column;
+    }
+  }
+}
