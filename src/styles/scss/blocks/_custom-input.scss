@@ -5,8 +5,13 @@
   flex-direction: column;
   gap: 8px;
   max-width: 695px;
-  width: 100%;
+  width: 695px;
   position: relative;
+
+  @include global.desktop {
+    max-width: 695px;
+    width: 100%;
+  }
 
   @include global.tablet {
     max-width: 450px;
