@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "../../store/index";
 import { changePassword, editProfile } from "../../api/UserApi";
 import { updateUser } from "../../store/slices/userSlice";
 import { useState, useEffect } from "react";
-import spriteUrl from "../../assets/sprite.svg"
+import spriteUrl from "../../assets/sprite.svg";
 import ModalLargeFile from "../../components/ModalLargeFile/ModalLargeFile";
 
 export const ProfilePage: FC = () => {
@@ -115,7 +115,14 @@ export const ProfilePage: FC = () => {
               }
             }}
           />
-          {isModalOpen && <ModalLargeFile />}
+          {isModalOpen && (
+            <ModalLargeFile
+              onClose={() => {
+                setModalOpen(false);
+                navigate("/profile");
+              }}
+            />
+          )}
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="name">
               <svg className="custom-input__icon" width="7" height="22">

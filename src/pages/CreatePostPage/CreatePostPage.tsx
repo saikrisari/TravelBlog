@@ -7,7 +7,8 @@ import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { newPost } from "../../api/PostsApi";
 import ModalPost from "../../components/ModalPost/ModalPost";
-import spriteUrl from "../../assets/sprite.svg"
+import spriteUrl from "../../assets/sprite.svg";
+import ModalLargeFile from "../../components/ModalLargeFile/ModalLargeFile";
 
 export const CreatePostPage: FC = () => {
   const [title, setTitle] = useState("");
@@ -16,6 +17,7 @@ export const CreatePostPage: FC = () => {
   const [city, setCity] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLargeFile, setLargeFile] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,6 +63,7 @@ export const CreatePostPage: FC = () => {
   return (
     <>
       {isModalOpen && <ModalPost onClose={() => setIsModalOpen(false)} />}
+      {isLargeFile && <ModalLargeFile onClose={() => setLargeFile(false)} />}
       <Header />
       <div className="form">
         <h1 className="form__header">Добавление истории о путешествии</h1>
@@ -76,7 +79,21 @@ export const CreatePostPage: FC = () => {
               className="custom-input__field"
               type="file"
               id="photo"
-              onChange={(e) => setPhoto(e.target.files?.[0] || null)}
+              onChange={(e) => {
+                const input = e.target as HTMLInputElement;
+                const file = e.target.files?.[0] || null;
+                const maxSize = 5 * 1024 * 1024;
+
+                input.value = "";
+
+                if (file && file.size > maxSize) {
+                  setPhoto(null);
+                  setLargeFile(true);
+                  return;
+                }
+
+                setPhoto(file);
+              }}
             />
           </div>
           <div className="custom-input">
