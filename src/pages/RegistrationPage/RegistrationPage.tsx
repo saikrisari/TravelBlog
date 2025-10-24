@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import { register } from "../../api/AuthApi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import spriteUrl from "../../assets/sprite.svg"
 
 export const RegistrationPage: FC = () => {
   const [email, setEmail] = useState("");
@@ -63,7 +64,7 @@ export const RegistrationPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="email">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Логин</span>
             </label>
@@ -84,7 +85,7 @@ export const RegistrationPage: FC = () => {
             <div className="custom-input custom-input--half">
               <label className="custom-input__label" htmlFor="password">
                 <svg className="custom-input__icon" width="7" height="22">
-                  <use href="src/assets/sprite.svg#star"></use>
+                  <use href={`${spriteUrl}#star`}></use>
                 </svg>
                 <span className="custom-input__title">Пароль</span>
               </label>
@@ -102,7 +103,7 @@ export const RegistrationPage: FC = () => {
             <div className="custom-input custom-input--half">
               <label className="custom-input__label" htmlFor="repeat">
                 <svg className="custom-input__icon" width="7" height="22">
-                  <use href="src/assets/sprite.svg#star"></use>
+                  <use href={`${spriteUrl}#star`}></use>
                 </svg>
                 <span className="custom-input__title">Повторите пароль</span>
               </label>

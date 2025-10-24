@@ -5,6 +5,7 @@ import { useAppSelector } from "../../store/index";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { logout } from "../../api/AuthApi";
+import spriteUrl from "../../assets/sprite.svg";
 
 export const HeaderMain: FC = () => {
   const user = useAppSelector((state) => state.user);
@@ -56,7 +57,7 @@ export const HeaderMain: FC = () => {
                   transition: "transform 0.2s",
                 }}
               >
-                <use href="src/assets/sprite.svg#triangle"></use>
+                <use href={`${spriteUrl}#triangle`}></use>
               </svg>
             </button>
             <ul

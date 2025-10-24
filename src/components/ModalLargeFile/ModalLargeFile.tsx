@@ -1,18 +1,22 @@
 import type { FC } from "react";
 import "../../styles/scss/blocks/_modal.scss";
 import spriteUrl from "../../assets/sprite.svg"
+import { useNavigate } from "react-router-dom";
 
-type ModalProps = {
-  onClose: () => void;
-};
+export const ModalLargeFile: FC = () => {
 
-export const ModalPost: FC<ModalProps> = ({ onClose }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/profile");
+  }
+
   return (
     <div className="modal">
       <div className="modal__overlay">
         <div className="modal__content">
-          <p className="modal__text">Ваш отзыв успешно добавлен</p>
-          <button className="modal__button" type="button" onClick={onClose}>
+          <p className="modal__text">Размер файла превышает 5 MB!</p>
+          <button className="modal__button" type="button" onClick={handleClick}>
             <svg className="modal__icon" width="21" height="24">
               <use href={`${spriteUrl}#close`}></use>
             </svg>
@@ -23,4 +27,4 @@ export const ModalPost: FC<ModalProps> = ({ onClose }) => {
   );
 };
 
-export default ModalPost;
+export default ModalLargeFile;

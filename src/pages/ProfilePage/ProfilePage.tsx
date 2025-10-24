@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../store/index";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import spriteUrl from "../../assets/sprite.svg"
 
 export const ProfilePage: FC = () => {
 
@@ -34,7 +35,7 @@ export const ProfilePage: FC = () => {
           />
           <Link className="btn btn--link" to={"/profile/edit"}>
             <svg className="profile__icon" width="32" height="32">
-              <use href="src/assets/sprite.svg#photo"></use>
+              <use href={`${spriteUrl}#photo`}></use>
             </svg>
             Изменить фото
           </Link>
@@ -44,7 +45,7 @@ export const ProfilePage: FC = () => {
             <h1 className="profile__title">{full_name}</h1>
             <Link className="profile__edit" to={"/profile/edit"} >
               <svg className="profile__icon-edit" width="32" height="32">
-                <use href="src/assets/sprite.svg#edit"></use>
+                <use href={`${spriteUrl}#edit`}></use>
               </svg>
             </Link>
           </div>

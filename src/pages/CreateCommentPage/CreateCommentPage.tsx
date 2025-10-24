@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import ModalComment from "../../components/ModalComment/ModalComment";
 import { Link, useParams } from "react-router-dom";
 import { newComment } from "../../api/PostsApi";
+import spriteUrl from "../../assets/sprite.svg"
 
 export const CreateCommentPage: FC = () => {
   const { postId } = useParams();
@@ -53,7 +54,7 @@ export const CreateCommentPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="name">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Ваше имя</span>
             </label>
@@ -72,7 +73,7 @@ export const CreateCommentPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="comment">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Отзыв</span>
             </label>
@@ -90,7 +91,7 @@ export const CreateCommentPage: FC = () => {
           <div className="form__wrapper">
             <Link className="btn btn--arrow" to={`/post/${postId}`}>
               <svg className="btn__icon" width="24" height="24">
-                <use href="src/assets/sprite.svg#arrow"></use>
+                <use href={`${spriteUrl}#arrow`}></use>
               </svg>
               <span className="btn__span">Назад</span>
             </Link>

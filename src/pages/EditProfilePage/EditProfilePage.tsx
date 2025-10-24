@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from "../../store/index";
 import { changePassword, editProfile } from "../../api/UserApi";
 import { updateUser } from "../../store/slices/userSlice";
 import { useState, useEffect } from "react";
+import spriteUrl from "../../assets/sprite.svg"
+import ModalLargeFile from "../../components/ModalLargeFile/ModalLargeFile";
 
 export const ProfilePage: FC = () => {
   const user = useAppSelector((state) => state.user);
@@ -22,6 +24,7 @@ export const ProfilePage: FC = () => {
   const [prevPhoto, setPrevPhoto] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     setFullName(user.full_name);
@@ -85,7 +88,7 @@ export const ProfilePage: FC = () => {
           />
           <label className="btn btn--link" htmlFor="photo">
             <svg className="profile__icon" width="32" height="32">
-              <use href="src/assets/sprite.svg#photo"></use>
+              <use href={`${spriteUrl}#photo`}></use>
             </svg>
             Изменить фото
           </label>
@@ -97,16 +100,26 @@ export const ProfilePage: FC = () => {
             id="photo"
             onChange={(e) => {
               const file = e.target.files?.[0] || null;
+              const maxSize = 5 * 1024 * 1024;
+
+              if (file && file.size > maxSize) {
+                setPhoto(null);
+                setPrevPhoto(user.photo);
+                setModalOpen(true);
+                return;
+              }
+
               setPhoto(file);
               if (file) {
                 setPrevPhoto(URL.createObjectURL(file));
               }
             }}
           />
+          {isModalOpen && <ModalLargeFile />}
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="name">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">ФИО</span>
             </label>
@@ -121,7 +134,7 @@ export const ProfilePage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="city">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Город</span>
             </label>
@@ -153,7 +166,7 @@ export const ProfilePage: FC = () => {
               <div className="custom-input custom-input--half">
                 <label className="custom-input__label" htmlFor="password">
                   <svg className="custom-input__icon" width="7" height="22">
-                    <use href="src/assets/sprite.svg#star"></use>
+                    <use href={`${spriteUrl}#star`}></use>
                   </svg>
                   <span className="custom-input__title">Новый пароль</span>
                 </label>
@@ -171,7 +184,7 @@ export const ProfilePage: FC = () => {
               <div className="custom-input custom-input--half">
                 <label className="custom-input__label" htmlFor="repeat">
                   <svg className="custom-input__icon" width="7" height="22">
-                    <use href="src/assets/sprite.svg#star"></use>
+                    <use href={`${spriteUrl}#star`}></use>
                   </svg>
                   <span className="custom-input__title">Повторите пароль</span>
                 </label>

@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import "../../styles/scss/blocks/_modal.scss";
+import spriteUrl from "../../assets/sprite.svg"
 
 type ModalProps = {
   onClose: () => void;
@@ -13,7 +14,7 @@ export const ModalPost: FC<ModalProps> = ({ onClose }) => {
           <p className="modal__text">Ваша история успешно добавлена</p>
           <button className="modal__button" type="button" onClick={onClose}>
             <svg className="modal__icon" width="21" height="24">
-              <use href="src/assets/sprite.svg#close"></use>
+              <use href={`${spriteUrl}#close`}></use>
             </svg>
           </button>
         </div>

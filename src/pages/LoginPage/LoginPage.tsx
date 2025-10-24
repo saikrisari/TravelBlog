@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { loginUser } from "../../store/slices/userSlice";
 import { login } from "../../api/AuthApi";
 import { getUser } from "../../api/UserApi";
+import spriteUrl from "../../assets/sprite.svg"
 
 export const LoginPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -59,7 +60,7 @@ export const LoginPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="email">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Логин</span>
             </label>
@@ -75,7 +76,7 @@ export const LoginPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="password">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Пароль</span>
             </label>

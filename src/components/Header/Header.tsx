@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { logout } from "../../api/AuthApi";
 import { useAppDispatch } from "../../store/index";
 import { logoutUser } from "../../store/slices/userSlice";
+import spriteUrl from "../../assets/sprite.svg";
 
 export const Header: FC = () => {
   const user = useAppSelector((state) => state.user);
@@ -60,7 +61,7 @@ export const Header: FC = () => {
                   transition: "transform 0.2s",
                 }}
               >
-                <use href="src/assets/sprite.svg#triangle"></use>
+                <use href={`${spriteUrl}#triangle`}></use>
               </svg>
             </button>
             <ul

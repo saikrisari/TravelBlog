@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import type { IComment, IPost } from "../../models/interfaces";
 import { getPost, getPostComments } from "../../api/PostsApi";
 import { useAppSelector } from "../../store";
+import spriteUrl from "../../assets/sprite.svg"
 
 export const PostPage: FC = () => {
   const user = useAppSelector((state) => state.user);
@@ -48,7 +49,7 @@ export const PostPage: FC = () => {
           <div className="form__wrapper">
             <Link className="btn btn--arrow" to="/">
               <svg className="btn__icon" width="24" height="24">
-                <use href="src/assets/sprite.svg#arrow"></use>
+                <use href={`${spriteUrl}#arrow`}></use>
               </svg>
               <span className="btn__span">Назад</span>
             </Link>

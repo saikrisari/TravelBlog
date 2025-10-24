@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { newPost } from "../../api/PostsApi";
 import ModalPost from "../../components/ModalPost/ModalPost";
+import spriteUrl from "../../assets/sprite.svg"
 
 export const CreatePostPage: FC = () => {
   const [title, setTitle] = useState("");
@@ -67,7 +68,7 @@ export const CreatePostPage: FC = () => {
           <div className="custom-input custom-input--photo">
             <label className="custom-input__label" htmlFor="photo">
               <svg className="custom-input__icon" width="14" height="14">
-                <use href="src/assets/sprite.svg#upload"></use>
+                <use href={`${spriteUrl}#upload`}></use>
               </svg>
               <span className="custom-input__title">Загрузите ваше фото</span>
             </label>
@@ -81,7 +82,7 @@ export const CreatePostPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="title">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Заголовок</span>
             </label>
@@ -100,7 +101,7 @@ export const CreatePostPage: FC = () => {
             <div className="custom-input custom-input--half">
               <label className="custom-input__label" htmlFor="country">
                 <svg className="custom-input__icon" width="7" height="22">
-                  <use href="src/assets/sprite.svg#star"></use>
+                  <use href={`${spriteUrl}#star`}></use>
                 </svg>
                 <span className="custom-input__title">Страна</span>
               </label>
@@ -118,7 +119,7 @@ export const CreatePostPage: FC = () => {
             <div className="custom-input custom-input--half">
               <label className="custom-input__label" htmlFor="city">
                 <svg className="custom-input__icon" width="7" height="22">
-                  <use href="src/assets/sprite.svg#star"></use>
+                  <use href={`${spriteUrl}#star`}></use>
                 </svg>
                 <span className="custom-input__title">Город</span>
               </label>
@@ -136,7 +137,7 @@ export const CreatePostPage: FC = () => {
           <div className="custom-input">
             <label className="custom-input__label" htmlFor="comment">
               <svg className="custom-input__icon" width="7" height="22">
-                <use href="src/assets/sprite.svg#star"></use>
+                <use href={`${spriteUrl}#star`}></use>
               </svg>
               <span className="custom-input__title">Описание</span>
             </label>
@@ -154,7 +155,7 @@ export const CreatePostPage: FC = () => {
           <div className="form__wrapper">
             <Link className="btn btn--arrow" to="/">
               <svg className="btn__icon" width="24" height="24">
-                <use href="src/assets/sprite.svg#arrow"></use>
+                <use href={`${spriteUrl}#arrow`}></use>
               </svg>
               <span className="btn__span">Назад</span>
             </Link>
